@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 function Header({ lang, onLangChange }) {
   const isFr = lang === "fr";
   const [isHidden, setIsHidden] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -30,6 +31,20 @@ function Header({ lang, onLangChange }) {
 
     return () => {
       window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > 768) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
@@ -105,9 +120,30 @@ function Header({ lang, onLangChange }) {
             />
           </a>
 
-          <nav className="main-nav" aria-label={isFr ? "Navigation principale" : "Main navigation"}>
+          <button
+            type="button"
+            className={`menu-toggle ${mobileMenuOpen ? "is-open" : ""}`}
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-label={isFr ? "Ouvrir le menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="main-navigation"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          <nav
+            id="main-navigation"
+            className={`main-nav ${mobileMenuOpen ? "main-nav-open" : ""}`}
+            aria-label={isFr ? "Navigation principale" : "Main navigation"}
+          >
             {primaryLinks.map((link) => (
-              <a key={link.label} href={link.href}>
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 {link.label}
               </a>
             ))}
