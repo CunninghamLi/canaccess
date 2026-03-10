@@ -2,12 +2,12 @@ function Footer({ lang }) {
   const isFr = lang === "fr";
 
   return (
-    <footer className="footer blue-bg">
+    <footer className="footer">
       <div className="container footer-grid">
         <div className="footer-brand">
           <div className="logo footer-logo">
             <img
-              src="/logo_blanc.png"
+              src="/logo_noir.png"
               alt={isFr ? "Cabinet d'immigration Can Access" : "Can Access Immigration Firm"}
               className="footer-logo-image"
             />

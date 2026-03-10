@@ -63,6 +63,11 @@
   color: white;
 }
 
+.red-bg {
+  background: #e31c2f;
+  color: white;
+}
+
 .primary-btn {
   display: inline-block;
   background: #e31c2f;
@@ -675,6 +680,19 @@
   grid-template-columns: 1fr 1fr;
   min-height: 600px;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.contact-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #ffffff);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .contact-left {
@@ -752,6 +770,8 @@
 
 .footer {
   padding: 70px 0 30px;
+  background: #ffffff;
+  color: #333333;
 }
 
 .footer-grid {
@@ -764,7 +784,7 @@
   margin-bottom: 20px;
   font-size: 1.15rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #002b63;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -788,7 +808,7 @@
 
 .footer-bottom {
   margin-top: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   padding-top: 20px;
   font-size: 0.9rem;
   text-align: center;
@@ -846,7 +866,7 @@
 
 .office-location {
   padding: 16px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.04);
   border-radius: 8px;
   border-left: 3px solid #e31c2f;
   line-height: 1.7;
@@ -860,14 +880,14 @@
 .office-name {
   margin-bottom: 8px !important;
   font-size: 1.05rem;
-  color: #ffffff !important;
+  color: #002b63 !important;
   opacity: 1 !important;
 }
 
 .footer-contact-info {
   margin-top: 12px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.04);
   border-radius: 8px;
 }
 
